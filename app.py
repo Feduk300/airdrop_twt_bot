@@ -7,11 +7,9 @@ from utils.set_bot_commands import set_default_commands
 
 
 async def on_startup(dispatcher):
-    # Устанавливаем дефолтные команды
-    await set_default_commands(dispatcher)
+    from utils.db_api.database import create_conn
 
-    # Уведомляет про запуск
-    await on_startup_notify(dispatcher)
+    await create_conn()
 
 
 if __name__ == '__main__':
