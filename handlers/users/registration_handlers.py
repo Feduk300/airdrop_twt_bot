@@ -1,23 +1,21 @@
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
+from data.config import check_channel
 from keyboards.default.main_menu_keyboard import main_menu
 from loader import dp, RegistrationStates, UsersDb
 
 
-@dp.message_handler(state=RegistrationStates.enter_captcha)
-async def check_subscribe_to_all_channels(message: types.Message, state:  FSMContext):
-    data = await state.get_data()
-    captcha = data.get('captcha')
-    try:
-        number = int(message.text)
-    except ValueError:
-        await message.answer(f"Пожалуйста, введите число {captcha}")
-        return
-    if number == captcha:
-        await UsersDb.register_user(message.from_user.id)
-        await message.answer("Добро пожаловать в бота",
+@dp.callback_query_handler(text="subscribed")
+async def back_cart(call: types.CallbackQuery):
+    chat_mamber = await dp.bot.get_chat_member(check_channel[0], call.message.chat.id)
+    print(chat_mamber.status)
+    if chat_mamber.status == "member" or "creator":
+        await UsersDb.register_user(call.message.chat.id)
+        await call.message.delete()
+        await call.message.answer("Подписались",
                              reply_markup=main_menu())
-        await state.finish()
+
     else:
-        await message.answer("Вы ввели неправильный код")
+        await call.answer("Вы не подписались на канал")
+

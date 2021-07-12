@@ -11,3 +11,15 @@ async def bot_help(message: types.Message):
             "/help - Получить справку")
     
     await message.answer("\n".join(text))
+
+@dp.message_handler(text="Контакты")
+async def contacts(message: types.Message):
+    await message.answer("Есть1")
+
+@dp.message_handler(text="Раздачи")
+async def distribution(message: types.Message):
+    await message.answer("Есть2")
+
+@dp.message_handler(text="Статистика")
+async def distribution(message: types.Message):
+    await message.answer("Есть3")
