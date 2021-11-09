@@ -1,5 +1,5 @@
 import asyncpg
-import success as success
+
 from data.config import POSTGRES, amount
 
 conn: asyncpg.connection.Connection = None
