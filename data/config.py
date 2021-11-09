@@ -6,5 +6,5 @@ amount = 1
 
 POSTGRES = {
     "host": "postgresql://postgres@localhost/twt_bot",
-    "password": ""
+    "password": "qwerty123"
 }
