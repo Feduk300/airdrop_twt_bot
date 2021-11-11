@@ -58,6 +58,13 @@ class UsersDb:
         return res
 
     @staticmethod
+    async def allusersbots():
+        query = f"SELECT user_id, balance, has_paid, number, full_name from users"
+        res = await conn.fetch(query)
+        return res
+
+
+    @staticmethod
     async def check_pay():
         query = f"SELECT COUNT(*) from users where has_paid = true"
         return await conn.fetchval(query)
