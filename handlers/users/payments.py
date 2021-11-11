@@ -14,7 +14,8 @@ async def check_payeds(message: types.Message):
     if check_payeds < 100:
             await message.answer(f"Нажмите на кнопку оплаты\n"
                                      f"После перевода денег проверьте оплату\n"      
-                                     f"После успешной оплаты зайдите в Информация → Написасть в саппорт\n"
+                                     f"После успешной оплаты зайдите\n"
+                                     f"Информация → Написать в саппорт\n"
                                      f"И напишите коментарий который был у платежа.\n"
                                      f"Сумма к оплате: {amount} Руб.\n", reply_markup=payments(message.chat.id))
     else:
