@@ -59,7 +59,7 @@ class UsersDb:
 
     @staticmethod
     async def allusersbots():
-        query = f"SELECT user_id, balance, has_paid, number, full_name from users"
+        query = f"SELECT user_id, balance, has_paid, number, full_name from users where user_id = {user_id}"
         res = await conn.fetch(query)
         return res
 
