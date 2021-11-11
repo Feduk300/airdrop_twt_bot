@@ -13,10 +13,10 @@ async def check_payeds(message: types.Message):
     check_payeds = await UsersDb.check_pay()
     if check_payeds < 100:
             await message.answer(f"Нажмите на кнопку оплаты\n"
-                                     f"После перевода денег проверьте оплату\n"
-                                     f"Сумма к оплате: {amount} Руб.\n"
+                                     f"После перевода денег проверьте оплату\n"      
                                      f"После успешной оплаты зайдите в Информация → Написасть в саппорт"
-                                     f"И напишите коментарий который был у платежа.", reply_markup=payments(message.chat.id))
+                                     f"И напишите коментарий который был у платежа."
+                                     f"Сумма к оплате: {amount} Руб.\n", reply_markup=payments(message.chat.id))
     else:
                 await message.answer("Мест больше нет")
 
