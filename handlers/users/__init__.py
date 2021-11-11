@@ -1,7 +1,6 @@
 from . import payments
 from . import start
 from . import info
-from . import start
 from . import party
 from . import names
 from . import settings_profile

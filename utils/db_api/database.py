@@ -48,12 +48,12 @@ class UsersDb:
 
     @staticmethod
     async def successfull(user_id):
-        query = f"update users set balance = balance+{amount}, has_paid=true where user_id = {user_id}"
+        query = f"update users set balance = balance+{amount}, has_paid=True where user_id = {user_id}"
         await conn.execute(query)
 
     @staticmethod
-    async def users(user_id):
-        query = f"SELECT user_id, balance, has_paid, number, full_name from users where has_paid = true"
+    async def users():
+        query = f"SELECT user_id, balance, has_paid, number, full_name from users where has_paid = True"
         res = await conn.fetch(query)
         return res
 

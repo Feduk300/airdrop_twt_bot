@@ -20,7 +20,7 @@ async def check_payeds(message: types.Message):
 @dp.callback_query_handler(text="payments")
 async def payments_check(call: types.CallbackQuery):
    if qiwi_check(call.message.chat.id, amount):
-        await call.message.edit_text("✅ Оплата прошла успешна.")
         await UsersDb.successfull(call.message.chat.id)
+        await call.message.edit_text("✅ Оплата прошла успешна.")
    else:
-       await call.answer("❌ Оплата не найдена")
+        await call.answer("❌ Оплата не найдена")

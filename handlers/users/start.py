@@ -13,6 +13,7 @@ async def menu_main(message: types.Message):
     if await UsersDb.user_exists(message.chat.id):
         await message.answer(f"Добро пожаловать на хорошую вечеринку",
                              reply_markup=menu())
+        print(message)
     else:
         await RegistrationStates.name.set()
         await message.answer("Введите ваш ФИО:")
