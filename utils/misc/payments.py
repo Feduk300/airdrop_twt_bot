@@ -2,6 +2,7 @@ import sqlite3
 import json
 import requests
 
+
 QIWI_TOKEN = "efb103afa270d8511bad2289b6f9bb79" # efb103afa270d8511bad2289b6f9bb79 - женя / паша - 5d6113d06761aa08c97aaa6e2a7c534d
 QIWI_LOGIN = "79095073304"
 
