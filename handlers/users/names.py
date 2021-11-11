@@ -16,10 +16,10 @@ async def admins(message: types.Message):
 
 @dp.message_handler(commands="admusers")
 async def admins(message: types.Message):
-    names = await UsersDb.allusersbots()
+    admusers = await UsersDb.allusersbots(message.chat.id)
 
     text="Пользователи, которые зарегестрировались:"
-    for tab in names:
+    for tab in admusers:
         text += f"\n {tab[4]}"
     await message.answer(text)
 

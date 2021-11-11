@@ -7,7 +7,7 @@ conn: asyncpg.connection.Connection = None
 
 async def create_conn():
     global conn
-    conn = await asyncpg.connect(POSTGRES['host'], password=POSTGRES['password'])
+    conn = await asyncpg.connect(POSTGRES['host'])
 
 
 class UsersDb:
@@ -58,7 +58,7 @@ class UsersDb:
         return res
 
     @staticmethod
-    async def allusersbots():
+    async def allusersbots(user_id):
         query = f"SELECT user_id, balance, has_paid, number, full_name from users where user_id = {user_id}"
         res = await conn.fetch(query)
         return res
