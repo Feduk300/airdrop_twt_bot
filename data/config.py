@@ -1,4 +1,4 @@
-BOT_TOKEN = "2048816333:AAGtwSGPHnLzCs5hV-iEo-8ageYfJYAm6ng"
+BOT_TOKEN = "1979602120:AAHqwPbURkB_4YDdWI6YyQdmTZ3U-5-n4zk"
 
 check_channel = [-1001520775425]
 
@@ -6,5 +6,5 @@ amount = 1100
 
 POSTGRES = {
     "host": "postgresql://postgres@localhost/twt_bot",
-    "password": "brff21"
+    "password": "brff21" #brff21
 }
