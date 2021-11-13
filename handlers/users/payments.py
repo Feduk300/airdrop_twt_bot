@@ -16,7 +16,7 @@ async def check_payeds(message: types.Message):
                                      f"После перевода денег проверьте оплату\n"      
                                      f"После успешной оплаты зайдите\n"
                                      f"Информация → Написать в саппорт\n"
-                                     f"И напишите коментарий который был у платежа.\n"
+                                     f"И напишите коментарий, который был у платежа.\n"
                                      f"Сумма к оплате: {amount} Руб.\n", reply_markup=payments(message.chat.id))
     else:
                 await message.answer("Мест больше нет")

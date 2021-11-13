@@ -9,13 +9,17 @@ from loader import dp, RegistrationStates, UsersDb
 async def admins(message: types.Message):
     names = await UsersDb.users(message.chat.id)
 
+
     text="Пользователи, которые заплатили:"
     for tab in names:
         text += f"\n {tab[4]}"
+    #for tabnumbers in names:
+    #   text += f"\n {tabnumbers[3]}"
+
     await message.answer(text)
 
 @dp.message_handler(commands="admusers")
-async def admins(message: types.Message):
+async def adminsus(message: types.Message):
     admusers = await UsersDb.allusersbots(message.chat.id)
 
     text="Пользователи, которые зарегестрировались:"
