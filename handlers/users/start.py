@@ -10,6 +10,7 @@ from loader import dp, RegistrationStates, UsersDb
 @dp.message_handler(text="Главное меню")
 @dp.message_handler(CommandStart())
 async def menu_main(message: types.Message):
+
     if await UsersDb.user_exists(message.chat.id):
         await message.answer(f"Добро пожаловать на хорошую вечеринку",
                              reply_markup=menu())

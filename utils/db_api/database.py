@@ -68,3 +68,13 @@ class UsersDb:
     async def check_pay():
         query = f"SELECT COUNT(*) from users where has_paid = true"
         return await conn.fetchval(query)
+
+    @staticmethod
+    async def adminget(user_id):
+        query = f"update users set admin = 1 where user_id = {user_id}"
+        await conn.execute(query)
+
+    @staticmethod
+    async def admin_checks():
+        query = f"SELECT COUNT(*) from users where admin = 1"
+        return await conn.fetchval(query)

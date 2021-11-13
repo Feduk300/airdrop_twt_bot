@@ -5,27 +5,34 @@ from data.config import check_channel
 
 from loader import dp, RegistrationStates, UsersDb
 
-@dp.message_handler(commands="admcommand")
+
+
+
+@dp.message_handler(text="Пользователи, которые заплатили")
 async def admins(message: types.Message):
-    names = await UsersDb.users(message.chat.id)
+    admin_check= await UsersDb.admin_checks()
+    if admin_check != 0:
+        names = await UsersDb.users(message.chat.id)
+        text="Пользователи, которые заплатили:"
+        for tab in names:
+            text += f"\n {tab[4]}"
+        await message.answer(text)
+    else:
+        await message.answer("Отказано")
 
-
-    text="Пользователи, которые заплатили:"
-    for tab in names:
-        text += f"\n {tab[4]}"
-    #for tabnumbers in names:
-    #   text += f"\n {tabnumbers[3]}"
-
-    await message.answer(text)
-
-@dp.message_handler(commands="admusers")
+@dp.message_handler(text="Все пользователи")
 async def adminsus(message: types.Message):
-    admusers = await UsersDb.allusersbots(message.chat.id)
+    admin_check= await UsersDb.admin_checks()
+    if admin_check != 0:
+        names = await UsersDb.users(message.chat.id)
+        admusers = await UsersDb.allusersbots(message.chat.id)
 
-    text="Пользователи, которые зарегестрировались:"
-    for tab in admusers:
-        text += f"\n {tab[4]}"
-    await message.answer(text)
+        text="Пользователи, которые зарегестрировались:"
+        for tab in admusers:
+            text += f"\n {tab[4]}"
+        await message.answer(text)
+    else:
+        await message.answer("Отказано")
 
 
 

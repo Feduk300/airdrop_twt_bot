@@ -6,3 +6,4 @@ from . import names
 from . import settings_profile
 from . import edites
 from . import support
+from . import adminpanel
