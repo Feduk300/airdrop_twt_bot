@@ -1,4 +1,4 @@
-BOT_TOKEN = "20816333:AAGtwSGPHnLzCs5hV-iEo-8ageYfJYAm6ng"
+BOT_TOKEN = "2048816333:AAGtwSGPHnLzCs5hV-iEo-8ageYfJYAm6ng"
 
 check_channel = [-1001520775425]
 
