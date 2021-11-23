@@ -76,7 +76,7 @@ class UsersDb:
 
     @staticmethod
     async def admin_checks():
-        query = f"SELECT COUNT(*) from users where admin = 1"
+        query = f"SELECT COUNT(*) from users where admin != 0"
         return await conn.fetchval(query)
 
     @staticmethod
