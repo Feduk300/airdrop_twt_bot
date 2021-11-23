@@ -29,7 +29,7 @@ async def admins_tab(message: types.Message):
 
 @dp.message_handler(text= "Назад в ЛК")
 async def admins_tabs(message: types.Message):
-        admin_check = await UsersDb.admin_checks()
+        admin_check = await UsersDb.admin_checks(
         if admin_check == 1:
             await message.answer("Вы вошли в ЛК с возможностью администратора", reply_markup=admin_menu())
 
