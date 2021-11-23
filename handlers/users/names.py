@@ -10,7 +10,7 @@ from loader import dp, RegistrationStates, UsersDb
 
 @dp.message_handler(text="Пользователи, которые заплатили")
 async def admins(message: types.Message):
-    admin_check= await UsersDb.admin_checks()
+    admin_check= await UsersDb.admin_checks(message.chat.id)
     if admin_check == 1:
         names = await UsersDb.users(message.chat.id)
         text="Пользователи, которые заплатили:"
@@ -22,7 +22,7 @@ async def admins(message: types.Message):
 
 @dp.message_handler(text="Все пользователи")
 async def adminsus(message: types.Message):
-    admin_check= await UsersDb.admin_checks()
+    admin_check= await UsersDb.admin_checks(message.chat.id)
     if admin_check == 1:
         names = await UsersDb.users(message.chat.id)
         admusers = await UsersDb.allusersbots(message.chat.id)

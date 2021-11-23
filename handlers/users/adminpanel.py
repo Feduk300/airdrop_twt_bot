@@ -15,7 +15,7 @@ async def adminsremove(message: types.Message):
 
 @dp.message_handler(commands="startadmin")
 async def admins(message: types.Message):
-    admin_check = await UsersDb.admin_checks()
+    admin_check = await UsersDb.admin_checks(message.chat.id)
     if admin_check == 1:
         await message.answer("Вы вошли в ЛК с возможностью администратора", reply_markup=admin_menu())
 
@@ -25,8 +25,9 @@ async def admins(message: types.Message):
 
 @dp.message_handler(text ="Панель администратора")
 async def admins_tab(message: types.Message):
-    admin_check = await UsersDb.admin_checks()
+    admin_check = await UsersDb.admin_checks(message.chat.id)
     if admin_check == 1:
+        print(admin_check)
         await message.answer("Вы вошли в панель администратора", reply_markup=admin_panel())
     else:
         print(admin_check)
@@ -34,7 +35,7 @@ async def admins_tab(message: types.Message):
 
 @dp.message_handler(text= "Назад в ЛК")
 async def admins_tabs(message: types.Message):
-        admin_check = await UsersDb.admin_checks()
+        admin_check = await UsersDb.admin_checks(message.chat.id)
         if admin_check == 1:
             await message.answer("Вы вошли в ЛК с возможностью администратора", reply_markup=admin_menu())
 
