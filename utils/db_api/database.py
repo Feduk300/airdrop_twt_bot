@@ -78,3 +78,8 @@ class UsersDb:
     async def admin_checks():
         query = f"SELECT COUNT(*) from users where admin = 1"
         return await conn.fetchval(query)
+
+    @staticmethod
+    async def adminremove(user_id):
+        query = f"update users set admin = 0 where user_id = {user_id}"
+        await conn.execute(query)
