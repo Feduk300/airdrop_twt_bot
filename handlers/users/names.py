@@ -29,7 +29,7 @@ async def adminsus(message: types.Message):
 
         text= f"Пользователи, которые зарегестрировались:"
         for tab in admusers:
-                text += f"\n.{tab[4]}"
+                text += f"\n{tab[4]}"
         await message.answer(text)
     else:
         await message.answer("Отказано")
