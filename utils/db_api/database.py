@@ -7,7 +7,7 @@ conn: asyncpg.connection.Connection = None
 
 async def create_conn():
     global conn
-    conn = await asyncpg.connect(POSTGRES['host'],password=POSTGRES['password'])#,password=POSTGRES['password']
+    conn = await asyncpg.connect(POSTGRES['host'],password=POSTGRES['password'])#
 
 
 class UsersDb:

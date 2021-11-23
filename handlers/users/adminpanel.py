@@ -9,7 +9,7 @@ async def adminstab(message: types.Message):
                          "Напишите /startadmin,чтобы войти в ЛК с правами администрации❗️")
 
 @dp.message_handler(commands="adminremove")
-async def adminstab(message: types.Message):
+async def adminsremove(message: types.Message):
     await UsersDb.adminremove(message.chat.id)
     await message.answer("Вы сняты!🧙\n")
 
