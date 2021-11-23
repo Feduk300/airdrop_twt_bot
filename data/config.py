@@ -1,4 +1,4 @@
-BOT_TOKEN = "нахуйиди"
+BOT_TOKEN = "2048816333:AAFXRBbrzEhjDwDRkTOQAYdzPlJFWJoV16E"
 
 check_channel = [-1001520775425]
 
