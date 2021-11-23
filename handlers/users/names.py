@@ -28,8 +28,9 @@ async def adminsus(message: types.Message):
         admusers = await UsersDb.allusersbots(message.chat.id)
 
         text= f"Пользователи, которые зарегестрировались:"
-        for tab in admusers,num:
-            text += f"\n {num+1}.{tab[4]}"
+        for tab in admusers:
+            for nums in num:
+                text += f"\n {nums+1}.{tab[4]}"
         await message.answer(text)
     else:
         await message.answer("Отказано")
