@@ -11,7 +11,7 @@ from loader import dp, RegistrationStates, UsersDb
 @dp.message_handler(text="Информация")
 async def information(message: types.Message):
     admin_check = await UsersDb.admin_checks()
-    if admin_check != 0:
+    if admin_check == 1:
         await message.answer("Выберите пункт.", reply_markup = dop_menuadm())
     else:
         await message.answer("Выберите пункт.", reply_markup = main_menu())

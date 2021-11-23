@@ -11,7 +11,7 @@ async def adminstab(message: types.Message):
 @dp.message_handler(commands="startadmin")
 async def admins(message: types.Message):
     admin_check = await UsersDb.admin_checks()
-    if admin_check != 0:
+    if admin_check == 1:
         await message.answer("Вы вошли в ЛК с возможностью администратора", reply_markup=admin_menu())
 
     else:
@@ -21,15 +21,16 @@ async def admins(message: types.Message):
 @dp.message_handler(text ="Панель администратора")
 async def admins_tab(message: types.Message):
     admin_check = await UsersDb.admin_checks()
-    if admin_check != 0:
+    if admin_check == 1:
         await message.answer("Вы вошли в панель администратора", reply_markup=admin_panel())
     else:
-        await message.answer( "Отказано в доступе")
+        print(admin_check)
+        await message.answer("Отказано в доступе")
 
 @dp.message_handler(text= "Назад в ЛК")
 async def admins_tabs(message: types.Message):
         admin_check = await UsersDb.admin_checks()
-        if admin_check != 0:
+        if admin_check == 1:
             await message.answer("Вы вошли в ЛК с возможностью администратора", reply_markup=admin_menu())
 
         else:
