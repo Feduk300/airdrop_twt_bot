@@ -6,7 +6,7 @@ from data.config import check_channel
 from loader import dp, RegistrationStates, UsersDb
 
 
-num = 0
+iny = 0
 
 @dp.message_handler(text="Пользователи, которые заплатили")
 async def admins(message: types.Message):
@@ -28,8 +28,8 @@ async def adminsus(message: types.Message):
         admusers = await UsersDb.allusersbots(message.chat.id)
 
         text= f"Пользователи, которые зарегестрировались:"
-        for tab in admusers:
-                text += f"\n{tab[4]}"
+            for tab in admusers:
+                    text += f"\n{tab[4]}"
         await message.answer(text)
     else:
         await message.answer("Отказано")
