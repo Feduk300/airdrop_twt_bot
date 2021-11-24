@@ -1,4 +1,4 @@
-BOT_TOKEN = "2048816333:AAGXModeJmcG0NxkRQrqUqTC9FQ4ckr2-LI"
+BOT_TOKEN = "хуй тебе"
 
 check_channel = [-1001520775425]
 
